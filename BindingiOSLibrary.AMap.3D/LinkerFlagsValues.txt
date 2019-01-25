@@ -1,0 +1,14 @@
+﻿暂时使用这些库即可成功编译
+
+-l'z' -l'c++' 
+-framework 'SystemConfiguration' 
+-framework 'Security' 
+-framework 'CoreTelephony' 
+-framework 'CFNetwork' 
+-framework 'CoreGraphics' 
+-framework 'CoreLocation' 
+-framework 'QuartzCore' 
+-framework 'UIKit' 
+-framework 'Foundation' 
+-framework 'GLKit' 
+-framework 'OpenGLES'

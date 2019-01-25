@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{87C7C049-029B-4098-82D4-BE71B9DF4D62}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EnpotXamarin</RootNamespace>
+    <AssemblyName>EnpotXamarin</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>16055</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>49630</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.20.3\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringExtension.cs" />
+    <Compile Include="ExceptionExtension.cs" />
+    <Compile Include="WeChatAPI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BindingiOSLibrary.TXWeChat\BindingiOSLibrary.TXWeChat.csproj">
+      <Project>{B875920E-1281-45F0-92EA-06BE898CA0C1}</Project>
+      <Name>BindingiOSLibrary.TXWeChat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BindingiOSLibrary.AMap\BindingiOSLibrary.AMap.csproj">
+      <Project>{A0C73CF4-1D9A-4B15-A2AD-93286FE9CC88}</Project>
+      <Name>BindingiOSLibrary.AMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BindingiOSLibrary.AMap.3D\BindingiOSLibrary.AMap.3D.csproj">
+      <Project>{D9216117-0CB8-4C52-96F2-9C78ADDA3CCD}</Project>
+      <Name>BindingiOSLibrary.AMap.3D</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AMap.bundle\GNaviConfig.xml" />
+    <BundleResource Include="Resources\AMap.bundle\res.zip" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\3d_navi_sky_day.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\3d_sky_day.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\3d_sky_night.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\3dlandscape.xml" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\3dportrait.xml" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\bktile.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\bktile_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\building.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\config_1_14_1510107091.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\config_2_14_1510107001.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\crossing_day_bk.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\crossing_nigth_bk.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\dash.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\dash_cd.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\dash_tq.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\gconfig_1_14_1484563173.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_10_14_1510107265.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_1_14_1517312363.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_23_14_1514285400.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_24_14_1510107285.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_25_14_1510054937.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_27_14_1517312468.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_2_14_1517312372.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_35_14_1521026482.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_3_14_1517312381.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_4_14_1510107228.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_50_14_1501055190.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_5_14_1517312288.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_5_14_for_custom.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_6_14_1510107235.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_7_14_1510107241.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\icons_8_14_1517312432.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\lineround.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\roadarrow.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\search_scenic_icon.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_0_14_1520856789.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_0_14_1527582292_for_custom.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_100_14_1521026633.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_10_14_1510107620.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_1_14_1520908388.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_3_14_1517301966.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_4_14_1520827092.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_50_14_1501671321.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_5_14_1517301920.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\style_6_14_1517302037.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\styleiconslist.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tbl.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tbl_l.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tbl_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tgl.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tgl_l.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tgl_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tmc_allinone.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tmc_l_allinone.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tmc_n_allinone.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tnl.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tnl_l.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tnl_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\trl.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\trl_l.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\trl_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tyl.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tyl_l.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\tyl_n.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\waterline.data" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\1015.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\1016.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\exit_label_bk_main_day.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\exit_label_bk_secondary_day.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\grass_day.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\grass_night.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\road_bottom_day.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\road_bottom_night.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\roadbk_main_day.png" />
+    <BundleResource Include="Resources\AMap.bundle\AMap3D.bundle\VM3DRes\roadbk_main_night.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\arrow_line_inner.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\arrow_line_outer.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\calloutArrowMask.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\calloutArrowMask%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin_lift.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin_lift%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\greenPin_lift%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\lineDashTexture.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\lineDashTextureDot.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\lineDashTextureThin.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\lineTexture.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\lineTextureThin.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\marker_blue.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\marker_blue%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_clear%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_down%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_shouqi%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_shouqi_2%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_sousuo%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_zhankai%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\offline_zhankai_2%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_fog.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_haze.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_rain.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_snow.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_sun_0.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\particle_sun_1.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\pin_shadow.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\pin_shadow%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\pin_shadow%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin_lift.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin_lift%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\purplePin_lift%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin_lift.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin_lift%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\redPin_lift%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\select_.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\select_%402x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\select_%403x.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_blue.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_darkred.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_gray.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_green.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_red.png" />
+    <BundleResource Include="Resources\AMap.bundle\images\traffic_texture_yellow.png" />
+    <BundleResource Include="Resources\AMap.bundle\offline\offlinePackage.plist" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>
