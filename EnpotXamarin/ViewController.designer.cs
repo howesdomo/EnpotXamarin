@@ -23,11 +23,31 @@ namespace EnpotXamarin
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnLocation { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnStopLocation { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnThrowExcpetion { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnWeChat { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblHeading { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblLatitude { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblLongitude { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -40,6 +60,14 @@ namespace EnpotXamarin
         [Action ("btnAMap_UpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void btnAMap_UpInside (UIKit.UIButton sender);
+
+        [Action ("btnLocationUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void btnLocationUpInside (UIKit.UIButton sender);
+
+        [Action ("btnStopLocationUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void btnStopLocationUpInside (UIKit.UIButton sender);
 
         [Action ("BtnThrowExcpetion_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -61,6 +89,16 @@ namespace EnpotXamarin
                 btnAMap = null;
             }
 
+            if (btnLocation != null) {
+                btnLocation.Dispose ();
+                btnLocation = null;
+            }
+
+            if (btnStopLocation != null) {
+                btnStopLocation.Dispose ();
+                btnStopLocation = null;
+            }
+
             if (btnThrowExcpetion != null) {
                 btnThrowExcpetion.Dispose ();
                 btnThrowExcpetion = null;
@@ -69,6 +107,21 @@ namespace EnpotXamarin
             if (btnWeChat != null) {
                 btnWeChat.Dispose ();
                 btnWeChat = null;
+            }
+
+            if (lblHeading != null) {
+                lblHeading.Dispose ();
+                lblHeading = null;
+            }
+
+            if (lblLatitude != null) {
+                lblLatitude.Dispose ();
+                lblLatitude = null;
+            }
+
+            if (lblLongitude != null) {
+                lblLongitude.Dispose ();
+                lblLongitude = null;
             }
 
             if (viewMap != null) {
